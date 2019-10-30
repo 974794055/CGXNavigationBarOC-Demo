@@ -2,13 +2,12 @@
 //  UIViewController+CGXNavigationBar.h
 //  CGXConfigBarButton
 //
-//  Created by 曹贵鑫 on 2017/11/13.
-//  Copyright © 2017年 曹贵鑫. All rights reserved.
+//  Created by CGX on 2017/11/13.
+//  Copyright © 2017年 CGX. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "UIBarButtonItem+CGXNavigationBar.h"
-
 
 //点击按钮事件
 typedef void(^UIViewControllerItemSelectBlock)(UIButton *btn,CGXNavigationBarItemModel *item);
@@ -24,24 +23,23 @@ typedef void(^UIViewControllerItemSelectBlock)(UIButton *btn,CGXNavigationBarIte
  */
 @property (nonatomic, assign) UIFont *barTitltFont;
 
-
 @property (nonatomic, strong) UIImage *barNavBackArrow;
 
-/*
-默认[UIColor colorWithWhite:0.93 alpha:1];
-*/
-@property (nonatomic, strong) UIColor *backColor;
-
-/*
+/**
  默认[UIColor colorWithWhite:0.93 alpha:1];
  */
+@property (nonatomic, strong) UIColor *backColor;
+
+/**
+ 默认[UIColor colorWithWhite:0.93 alpha:1];
+*/
 - (void)bgColor;
 - (void)bgColor:(UIColor *)color;
 
 
 /**
-// 导航条标题设置 font： 18    color： [UIColor blackColor]
-// */
+ 导航条标题设置 font： 18    color： [UIColor blackColor]
+*/
 - (void)setNavTitle:(NSString *)title;
 - (void)setNavTitle:(NSString *)title
           withColor:(UIColor *)color;
@@ -64,15 +62,15 @@ typedef void(^UIViewControllerItemSelectBlock)(UIButton *btn,CGXNavigationBarIte
 
 #pragma mark -- 左侧按钮
 -(void)addBarLeftWithTitle:(NSString *)title
-                Target:(CGXBarButtonItemSelectBlock)selectBlock;
+                    Target:(CGXBarButtonItemSelectBlock)selectBlock;
 
 -(void)addBarLeftWithImage:(UIImage *)image
-                           Target:(UIViewControllerItemSelectBlock)selectBlock;
+                    Target:(UIViewControllerItemSelectBlock)selectBlock;
 
 -(void)addBarLeftWithTitle:(NSString *)title
-                            Image:(UIImage *)image
-                            Style:(CGXNavigationBarItemModelEdgeInsetsStyle)style
-                           Target:(UIViewControllerItemSelectBlock)selectBlock;
+                     Image:(UIImage *)image
+                     Style:(CGXNavigationBarItemModelEdgeInsetsStyle)style
+                    Target:(UIViewControllerItemSelectBlock)selectBlock;
 
 -(void)addBarLeftWithModel:(CGXNavigationBarItemModel *)model
                     Target:(UIViewControllerItemSelectBlock)selectBlock;
@@ -82,20 +80,20 @@ typedef void(^UIViewControllerItemSelectBlock)(UIButton *btn,CGXNavigationBarIte
 
 #pragma mark -- 右侧按钮
 -(void)addBarRightWithTitle:(NSString *)title
-                Target:(CGXBarButtonItemSelectBlock)selectBlock;
+                     Target:(CGXBarButtonItemSelectBlock)selectBlock;
 
 -(void)addBarRightWithImage:(UIImage *)image
-                           Target:(UIViewControllerItemSelectBlock)selectBlock;
+                     Target:(UIViewControllerItemSelectBlock)selectBlock;
 
 -(void)addBarRightWithTitle:(NSString *)title
-                            Image:(UIImage *)image
-                            Style:(CGXNavigationBarItemModelEdgeInsetsStyle)style
-                           Target:(UIViewControllerItemSelectBlock)selectBlock;
+                      Image:(UIImage *)image
+                      Style:(CGXNavigationBarItemModelEdgeInsetsStyle)style
+                     Target:(UIViewControllerItemSelectBlock)selectBlock;
 
 -(void)addBarRightWithModel:(CGXNavigationBarItemModel *)model
-                    Target:(UIViewControllerItemSelectBlock)selectBlock;
+                     Target:(UIViewControllerItemSelectBlock)selectBlock;
 
 -(void)addBarRightMorelWithArr:(NSArray<CGXNavigationBarItemModel *> *)array
-                       Target:(UIViewControllerItemSelectBlock)selectBlock;
+                        Target:(UIViewControllerItemSelectBlock)selectBlock;
 
 @end

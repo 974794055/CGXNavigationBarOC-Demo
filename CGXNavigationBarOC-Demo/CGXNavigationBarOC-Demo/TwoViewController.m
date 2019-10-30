@@ -2,7 +2,7 @@
 //  TwoViewController.m
 //  CGXNavigationBarOC-Demo
 //
-//  Created by MacMini-1 on 2019/10/30.
+//  Created by CGX on 2019/10/30.
 //  Copyright © 2019 CGX. All rights reserved.
 //
 
@@ -45,6 +45,7 @@
     btn.titleLabel.numberOfLines = 0;
     [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     btn.frame = CGRectMake(0, 44, 60, 44);
+    btn.userInteractionEnabled = YES;
     [self.customNavBar addSubview:btn];
 }
 

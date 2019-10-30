@@ -2,8 +2,8 @@
 //  UINavigationBar+CGXNav.h
 //  CGXCategoryView-OC
 //
-//  Created by 曹贵鑫 on 2019/10/19.
-//  Copyright © 2019 曹贵鑫. All rights reserved.
+//  Created by CGX on 2019/10/19.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
