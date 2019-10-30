@@ -19,8 +19,6 @@
 		04BA9DC3236965540017DCB1 /* UINavigationItem+CGXNavigationBarFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9DAC236965540017DCB1 /* UINavigationItem+CGXNavigationBarFixSpace.m */; };
 		04BA9DC4236965540017DCB1 /* CGXNavigationBarNavConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9DAD236965540017DCB1 /* CGXNavigationBarNavConfig.m */; };
 		04BA9DC5236965540017DCB1 /* NSObject+CGXNavigationBarFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9DB2236965540017DCB1 /* NSObject+CGXNavigationBarFixSpace.m */; };
-		04BA9DC6236965540017DCB1 /* CGXNavigationBarNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9DB3236965540017DCB1 /* CGXNavigationBarNavView.m */; };
-		04BA9DC7236965540017DCB1 /* UINavigationBar+CGXNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9DB4236965540017DCB1 /* UINavigationBar+CGXNavigationBar.m */; };
 		04BA9DC8236965540017DCB1 /* UIImage+CGXNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9DB8236965540017DCB1 /* UIImage+CGXNavigationBar.m */; };
 		04BA9DC9236965540017DCB1 /* UIBarButtonItem+CGXNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9DBB236965540017DCB1 /* UIBarButtonItem+CGXNavigationBar.m */; };
 		04BA9DCA236965540017DCB1 /* UIButton+CGXBarButtonImageTitleSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9DBD236965540017DCB1 /* UIButton+CGXBarButtonImageTitleSpace.m */; };
@@ -28,7 +26,9 @@
 		04BA9DCC236965540017DCB1 /* UIButton+CGXBarButtonBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9DBF236965540017DCB1 /* UIButton+CGXBarButtonBlock.m */; };
 		04BA9E0823696BAA0017DCB1 /* CGXNavigationBarOCBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04BA9E0723696BAA0017DCB1 /* CGXNavigationBarOCBundle.bundle */; };
 		04BA9E2123696E6F0017DCB1 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E2023696E6F0017DCB1 /* TwoViewController.m */; };
-		04BA9E24236973130017DCB1 /* CGXNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E23236973130017DCB1 /* CGXNavigationBar.m */; };
+		04BA9E2C236979220017DCB1 /* UINavigationBar+CGXNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E27236979220017DCB1 /* UINavigationBar+CGXNavigationBar.m */; };
+		04BA9E2D236979220017DCB1 /* CGXNavigationBarNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E28236979220017DCB1 /* CGXNavigationBarNavView.m */; };
+		04BA9E2E236979220017DCB1 /* CGXNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9E29236979220017DCB1 /* CGXNavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +45,6 @@
 		04BA9D82236955470017DCB1 /* OneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneViewController.h; sourceTree = "<group>"; };
 		04BA9D83236955470017DCB1 /* OneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
 		04BA9DA5236965540017DCB1 /* UIViewController+CGXNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CGXNavigationBar.h"; sourceTree = "<group>"; };
-		04BA9DA7236965540017DCB1 /* CGXNavigationBarNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXNavigationBarNavView.h; sourceTree = "<group>"; };
-		04BA9DA8236965540017DCB1 /* UINavigationBar+CGXNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CGXNavigationBar.h"; sourceTree = "<group>"; };
 		04BA9DA9236965540017DCB1 /* UIViewController+CGXNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CGXNavigationBar.m"; sourceTree = "<group>"; };
 		04BA9DAB236965540017DCB1 /* UINavigationBar+CGXNavigationBarFixSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CGXNavigationBarFixSpace.m"; sourceTree = "<group>"; };
 		04BA9DAC236965540017DCB1 /* UINavigationItem+CGXNavigationBarFixSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CGXNavigationBarFixSpace.m"; sourceTree = "<group>"; };
@@ -56,8 +54,6 @@
 		04BA9DB0236965540017DCB1 /* UINavigationBar+CGXNavigationBarFixSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CGXNavigationBarFixSpace.h"; sourceTree = "<group>"; };
 		04BA9DB1236965540017DCB1 /* CGXNavigationBarNavConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXNavigationBarNavConfig.h; sourceTree = "<group>"; };
 		04BA9DB2236965540017DCB1 /* NSObject+CGXNavigationBarFixSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CGXNavigationBarFixSpace.m"; sourceTree = "<group>"; };
-		04BA9DB3236965540017DCB1 /* CGXNavigationBarNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXNavigationBarNavView.m; sourceTree = "<group>"; };
-		04BA9DB4236965540017DCB1 /* UINavigationBar+CGXNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CGXNavigationBar.m"; sourceTree = "<group>"; };
 		04BA9DB6236965540017DCB1 /* UIBarButtonItem+CGXNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CGXNavigationBar.h"; sourceTree = "<group>"; };
 		04BA9DB7236965540017DCB1 /* UIButton+CGXBarButtonImageTitleSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CGXBarButtonImageTitleSpace.h"; sourceTree = "<group>"; };
 		04BA9DB8236965540017DCB1 /* UIImage+CGXNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CGXNavigationBar.m"; sourceTree = "<group>"; };
@@ -71,8 +67,13 @@
 		04BA9E0723696BAA0017DCB1 /* CGXNavigationBarOCBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CGXNavigationBarOCBundle.bundle; sourceTree = "<group>"; };
 		04BA9E1F23696E6F0017DCB1 /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		04BA9E2023696E6F0017DCB1 /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
-		04BA9E22236973130017DCB1 /* CGXNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXNavigationBar.h; sourceTree = "<group>"; };
-		04BA9E23236973130017DCB1 /* CGXNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXNavigationBar.m; sourceTree = "<group>"; };
+		04BA9E25236979130017DCB1 /* CGXNavigationBarOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXNavigationBarOC.h; sourceTree = "<group>"; };
+		04BA9E26236979210017DCB1 /* UINavigationBar+CGXNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+CGXNavigationBar.h"; path = "../../UINavigationBar+CGXNavigationBar.h"; sourceTree = "<group>"; };
+		04BA9E27236979220017DCB1 /* UINavigationBar+CGXNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+CGXNavigationBar.m"; path = "../../UINavigationBar+CGXNavigationBar.m"; sourceTree = "<group>"; };
+		04BA9E28236979220017DCB1 /* CGXNavigationBarNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGXNavigationBarNavView.m; path = ../../CGXNavigationBarNavView.m; sourceTree = "<group>"; };
+		04BA9E29236979220017DCB1 /* CGXNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGXNavigationBar.m; path = ../../CGXNavigationBar.m; sourceTree = "<group>"; };
+		04BA9E2A236979220017DCB1 /* CGXNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGXNavigationBar.h; path = ../../CGXNavigationBar.h; sourceTree = "<group>"; };
+		04BA9E2B236979220017DCB1 /* CGXNavigationBarNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGXNavigationBarNavView.h; path = ../../CGXNavigationBarNavView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +114,12 @@
 				04BA9D83236955470017DCB1 /* OneViewController.m */,
 				04BA9E1F23696E6F0017DCB1 /* TwoViewController.h */,
 				04BA9E2023696E6F0017DCB1 /* TwoViewController.m */,
+				04BA9E2A236979220017DCB1 /* CGXNavigationBar.h */,
+				04BA9E29236979220017DCB1 /* CGXNavigationBar.m */,
+				04BA9E2B236979220017DCB1 /* CGXNavigationBarNavView.h */,
+				04BA9E28236979220017DCB1 /* CGXNavigationBarNavView.m */,
+				04BA9E26236979210017DCB1 /* UINavigationBar+CGXNavigationBar.h */,
+				04BA9E27236979220017DCB1 /* UINavigationBar+CGXNavigationBar.m */,
 				04064D522360057600BDDBE6 /* Main.storyboard */,
 				04BA9DA4236965540017DCB1 /* CGXNavigationBarOC */,
 				04064D552360057800BDDBE6 /* Assets.xcassets */,
@@ -126,15 +133,9 @@
 		04BA9DA4236965540017DCB1 /* CGXNavigationBarOC */ = {
 			isa = PBXGroup;
 			children = (
-				04BA9E22236973130017DCB1 /* CGXNavigationBar.h */,
-				04BA9E23236973130017DCB1 /* CGXNavigationBar.m */,
-				04BA9DA8236965540017DCB1 /* UINavigationBar+CGXNavigationBar.h */,
-				04BA9DB4236965540017DCB1 /* UINavigationBar+CGXNavigationBar.m */,
-				04BA9DA5236965540017DCB1 /* UIViewController+CGXNavigationBar.h */,
-				04BA9DA9236965540017DCB1 /* UIViewController+CGXNavigationBar.m */,
-				04BA9DA7236965540017DCB1 /* CGXNavigationBarNavView.h */,
-				04BA9DB3236965540017DCB1 /* CGXNavigationBarNavView.m */,
+				04BA9E25236979130017DCB1 /* CGXNavigationBarOC.h */,
 				04BA9E0723696BAA0017DCB1 /* CGXNavigationBarOCBundle.bundle */,
+				04BA9E2F23697C910017DCB1 /* CGXNavigationBar */,
 				04BA9DAA236965540017DCB1 /* CGXBarFixSpace */,
 				04BA9DB5236965540017DCB1 /* CGXBarCustom */,
 			);
@@ -145,13 +146,13 @@
 		04BA9DAA236965540017DCB1 /* CGXBarFixSpace */ = {
 			isa = PBXGroup;
 			children = (
-				04BA9DAB236965540017DCB1 /* UINavigationBar+CGXNavigationBarFixSpace.m */,
-				04BA9DAC236965540017DCB1 /* UINavigationItem+CGXNavigationBarFixSpace.m */,
-				04BA9DAD236965540017DCB1 /* CGXNavigationBarNavConfig.m */,
-				04BA9DAE236965540017DCB1 /* NSObject+CGXNavigationBarFixSpace.h */,
-				04BA9DAF236965540017DCB1 /* UINavigationItem+CGXNavigationBarFixSpace.h */,
-				04BA9DB0236965540017DCB1 /* UINavigationBar+CGXNavigationBarFixSpace.h */,
 				04BA9DB1236965540017DCB1 /* CGXNavigationBarNavConfig.h */,
+				04BA9DAD236965540017DCB1 /* CGXNavigationBarNavConfig.m */,
+				04BA9DB0236965540017DCB1 /* UINavigationBar+CGXNavigationBarFixSpace.h */,
+				04BA9DAB236965540017DCB1 /* UINavigationBar+CGXNavigationBarFixSpace.m */,
+				04BA9DAF236965540017DCB1 /* UINavigationItem+CGXNavigationBarFixSpace.h */,
+				04BA9DAC236965540017DCB1 /* UINavigationItem+CGXNavigationBarFixSpace.m */,
+				04BA9DAE236965540017DCB1 /* NSObject+CGXNavigationBarFixSpace.h */,
 				04BA9DB2236965540017DCB1 /* NSObject+CGXNavigationBarFixSpace.m */,
 			);
 			path = CGXBarFixSpace;
@@ -172,6 +173,15 @@
 				04BA9DBE236965540017DCB1 /* CGXNavigationBarItemModel.m */,
 			);
 			path = CGXBarCustom;
+			sourceTree = "<group>";
+		};
+		04BA9E2F23697C910017DCB1 /* CGXNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				04BA9DA5236965540017DCB1 /* UIViewController+CGXNavigationBar.h */,
+				04BA9DA9236965540017DCB1 /* UIViewController+CGXNavigationBar.m */,
+			);
+			path = CGXNavigationBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04BA9E24236973130017DCB1 /* CGXNavigationBar.m in Sources */,
+				04BA9E2E236979220017DCB1 /* CGXNavigationBar.m in Sources */,
 				04BA9DCA236965540017DCB1 /* UIButton+CGXBarButtonImageTitleSpace.m in Sources */,
 				04BA9DC9236965540017DCB1 /* UIBarButtonItem+CGXNavigationBar.m in Sources */,
 				04BA9DC8236965540017DCB1 /* UIImage+CGXNavigationBar.m in Sources */,
@@ -255,12 +265,12 @@
 				04BA9DC2236965540017DCB1 /* UINavigationBar+CGXNavigationBarFixSpace.m in Sources */,
 				04BA9DC1236965540017DCB1 /* UIViewController+CGXNavigationBar.m in Sources */,
 				04BA9DC3236965540017DCB1 /* UINavigationItem+CGXNavigationBarFixSpace.m in Sources */,
-				04BA9DC7236965540017DCB1 /* UINavigationBar+CGXNavigationBar.m in Sources */,
 				04064D4B2360057600BDDBE6 /* AppDelegate.m in Sources */,
 				04BA9DCC236965540017DCB1 /* UIButton+CGXBarButtonBlock.m in Sources */,
+				04BA9E2C236979220017DCB1 /* UINavigationBar+CGXNavigationBar.m in Sources */,
 				04BA9E2123696E6F0017DCB1 /* TwoViewController.m in Sources */,
+				04BA9E2D236979220017DCB1 /* CGXNavigationBarNavView.m in Sources */,
 				04064D5C2360057800BDDBE6 /* main.m in Sources */,
-				04BA9DC6236965540017DCB1 /* CGXNavigationBarNavView.m in Sources */,
 				04BA9D84236955470017DCB1 /* OneViewController.m in Sources */,
 				04BA9DC5236965540017DCB1 /* NSObject+CGXNavigationBarFixSpace.m in Sources */,
 				04BA9DCB236965540017DCB1 /* CGXNavigationBarItemModel.m in Sources */,

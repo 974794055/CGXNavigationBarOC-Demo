@@ -30,7 +30,7 @@
 -(void)configBase {
     self.gxBar_defaultFixSpace = 10;
     if ([[[UIDevice currentDevice] systemVersion] floatValue]>11) {
-        self.gxBar_fixedSpaceWidth = -20;
+        self.gxBar_fixedSpaceWidth = -15;
     }else{
         self.gxBar_fixedSpaceWidth = -10;
     }
