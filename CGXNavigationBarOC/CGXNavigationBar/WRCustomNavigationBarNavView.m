@@ -1,61 +1,20 @@
 //
-//  WRCustomNavigationBar.m
-//  CodeDemo
+//  WRCustomNavigationBarNavView.m
+//  CGXNavigationBarOC-Demo
 //
-//  Created by wangrui on 2017/10/22.
-//  Copyright © 2017年 wangrui. All rights reserved.
+//  Created by CGX on 2019/10/1.
+//  Copyright © 2019 CGX. All rights reserved.
 //
-//  Github地址：https://github.com/wangrui460/CGXNavigationBarNavView
 
 #import "WRCustomNavigationBarNavView.h"
 #import "sys/utsname.h"
-
+#import <objc/runtime.h>
+#import "UIButton+CGXBarButtonBlock.h"
+#import "UIViewController+CGXNavigationBarView.h"
 #define kWRDefaultTitleSize 18
 #define kWRDefaultTitleColor [UIColor blackColor]
 #define kWRDefaultBackgroundColor [UIColor whiteColor]
 #define kWRScreenWidth [UIScreen mainScreen].bounds.size.width
-
-//@implementation UIViewController (WRRoute)
-//
-//- (void)gx_toLastViewController
-//{
-//    if (self.navigationController) {
-//        if (self.navigationController.viewControllers.count == 1) {
-//            if (self.presentingViewController) {
-//                [self dismissViewControllerAnimated:YES completion:nil];
-//            }
-//        } else {
-//            [self.navigationController popViewControllerAnimated:YES];
-//        }
-//    } else if(self.presentingViewController) {
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }
-//}
-//
-//+ (UIViewController*)gx_currentViewController {
-//    UIViewController* rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-//    return [self gx_currentViewControllerFrom:rootViewController];
-//}
-//
-//+ (UIViewController*)gx_currentViewControllerFrom:(UIViewController*)viewController
-//{
-//    if ([viewController isKindOfClass:[UINavigationController class]]) {
-//        UINavigationController* navigationController = (UINavigationController *)viewController;
-//        return [self gx_currentViewControllerFrom:navigationController.viewControllers.lastObject];
-//    }
-//    else if([viewController isKindOfClass:[UITabBarController class]]) {
-//        UITabBarController* tabBarController = (UITabBarController *)viewController;
-//        return [self gx_currentViewControllerFrom:tabBarController.selectedViewController];
-//    }
-//    else if (viewController.presentedViewController != nil) {
-//        return [self gx_currentViewControllerFrom:viewController.presentedViewController];
-//    }
-//    else {
-//        return viewController;
-//    }
-//}
-//
-//@end
 
 @interface WRCustomNavigationBarNavView ()
 @property (nonatomic, strong) UILabel     *titleLable;

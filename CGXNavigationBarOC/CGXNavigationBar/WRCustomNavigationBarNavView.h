@@ -1,14 +1,13 @@
 //
-//  WRCustomNavigationBar.h
-//  CodeDemo
+//  WRCustomNavigationBarNavView.h
+//  CGXNavigationBarOC-Demo
 //
-//  Created by wangrui on 2017/10/22.
-//  Copyright © 2017年 wangrui. All rights reserved.
+//  Created by CGX on 2019/10/1.
+//  Copyright © 2019 CGX. All rights reserved.
 //
-//  Github地址：https://github.com/wangrui460/CGXNavigationBarNavView
 
 #import <UIKit/UIKit.h>
-#import "UIViewController+CGXNavigationBarView.h"
+
 @interface WRCustomNavigationBarNavView : UIView
 
 @property (nonatomic, copy) void(^onClickLeftButton)(void);

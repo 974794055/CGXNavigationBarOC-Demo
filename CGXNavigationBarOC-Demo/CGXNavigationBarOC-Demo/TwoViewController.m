@@ -41,7 +41,7 @@
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
 
     if (self.navigationController.childViewControllers.count != 1) {
-        [self.customNavBar gx_setLeftButtonWithTitle:@"<<" titleColor:[UIColor whiteColor]];
+//        [self.customNavBar gx_setLeftButtonWithTitle:@"<<" titleColor:[UIColor whiteColor]];
     }
 }
 
