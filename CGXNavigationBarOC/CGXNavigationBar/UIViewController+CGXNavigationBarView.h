@@ -47,6 +47,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setPushToCurrentVCFinished:(BOOL)isFinished;
 
+- (void)gx_toLastViewController;
+
++ (UIViewController*)gx_currentViewController;
+
++ (UIViewController*)gx_currentViewControllerFrom:(UIViewController*)viewController;
+
 @end
 
 NS_ASSUME_NONNULL_END

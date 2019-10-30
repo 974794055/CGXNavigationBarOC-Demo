@@ -7,7 +7,7 @@
 //
 //  Github地址：https://github.com/wangrui460/CGXNavigationBarNavView
 
-#import "WRCustomNavigationBar.h"
+#import "WRCustomNavigationBarNavView.h"
 #import "sys/utsname.h"
 
 #define kWRDefaultTitleSize 18
@@ -15,49 +15,49 @@
 #define kWRDefaultBackgroundColor [UIColor whiteColor]
 #define kWRScreenWidth [UIScreen mainScreen].bounds.size.width
 
-@implementation UIViewController (WRRoute)
+//@implementation UIViewController (WRRoute)
+//
+//- (void)gx_toLastViewController
+//{
+//    if (self.navigationController) {
+//        if (self.navigationController.viewControllers.count == 1) {
+//            if (self.presentingViewController) {
+//                [self dismissViewControllerAnimated:YES completion:nil];
+//            }
+//        } else {
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }
+//    } else if(self.presentingViewController) {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+//}
+//
+//+ (UIViewController*)gx_currentViewController {
+//    UIViewController* rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+//    return [self gx_currentViewControllerFrom:rootViewController];
+//}
+//
+//+ (UIViewController*)gx_currentViewControllerFrom:(UIViewController*)viewController
+//{
+//    if ([viewController isKindOfClass:[UINavigationController class]]) {
+//        UINavigationController* navigationController = (UINavigationController *)viewController;
+//        return [self gx_currentViewControllerFrom:navigationController.viewControllers.lastObject];
+//    }
+//    else if([viewController isKindOfClass:[UITabBarController class]]) {
+//        UITabBarController* tabBarController = (UITabBarController *)viewController;
+//        return [self gx_currentViewControllerFrom:tabBarController.selectedViewController];
+//    }
+//    else if (viewController.presentedViewController != nil) {
+//        return [self gx_currentViewControllerFrom:viewController.presentedViewController];
+//    }
+//    else {
+//        return viewController;
+//    }
+//}
+//
+//@end
 
-- (void)gx_toLastViewController
-{
-    if (self.navigationController) {
-        if (self.navigationController.viewControllers.count == 1) {
-            if (self.presentingViewController) {
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        } else {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    } else if(self.presentingViewController) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-
-+ (UIViewController*)gx_currentViewController {
-    UIViewController* rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-    return [self gx_currentViewControllerFrom:rootViewController];
-}
-
-+ (UIViewController*)gx_currentViewControllerFrom:(UIViewController*)viewController
-{
-    if ([viewController isKindOfClass:[UINavigationController class]]) {
-        UINavigationController* navigationController = (UINavigationController *)viewController;
-        return [self gx_currentViewControllerFrom:navigationController.viewControllers.lastObject];
-    }
-    else if([viewController isKindOfClass:[UITabBarController class]]) {
-        UITabBarController* tabBarController = (UITabBarController *)viewController;
-        return [self gx_currentViewControllerFrom:tabBarController.selectedViewController];
-    }
-    else if (viewController.presentedViewController != nil) {
-        return [self gx_currentViewControllerFrom:viewController.presentedViewController];
-    }
-    else {
-        return viewController;
-    }
-}
-
-@end
-
-@interface WRCustomNavigationBar ()
+@interface WRCustomNavigationBarNavView ()
 @property (nonatomic, strong) UILabel     *titleLable;
 @property (nonatomic, strong) UIButton    *leftButton;
 @property (nonatomic, strong) UIButton    *rightButton;
@@ -66,10 +66,10 @@
 @property (nonatomic, strong) UIImageView *backgroundImageView;
 @end
 
-@implementation WRCustomNavigationBar
+@implementation WRCustomNavigationBarNavView
 
 + (instancetype)CustomNavigationBar {
-    WRCustomNavigationBar *navigationBar = [[self alloc] initWithFrame:CGRectMake(0, 0, kWRScreenWidth, [WRCustomNavigationBar navBarBottom])];
+    WRCustomNavigationBarNavView *navigationBar = [[self alloc] initWithFrame:CGRectMake(0, 0, kWRScreenWidth, [WRCustomNavigationBarNavView navBarBottom])];
     return navigationBar;
 }
 - (instancetype)init {
@@ -99,7 +99,7 @@
 
 // TODO:这边结合 WRCellView 会不会更好呢？
 -(void)updateFrame {
-    NSInteger top = ([WRCustomNavigationBar isIphoneX]) ? 44 : 20;
+    NSInteger top = ([WRCustomNavigationBarNavView isIphoneX]) ? 44 : 20;
     NSInteger margin = 0;
     NSInteger buttonHeight = 44;
     NSInteger buttonWidth = 44;
@@ -268,16 +268,17 @@
     return 44 + CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
 }
 + (BOOL)isIphoneX {
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
-    if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) {
-        // judgment by height when in simulators
-        return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
-                CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)));
+    BOOL iPhoneXSeries = NO;
+    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
+        return iPhoneXSeries;
     }
-    BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
-    return isIPhoneX;
+    if (@available(iOS 11.0, *)) {
+        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+        if (mainWindow.safeAreaInsets.bottom > 0.0) {
+            iPhoneXSeries = YES;
+        }
+    }
+    return iPhoneXSeries;
 }
 
 @end

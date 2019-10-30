@@ -7,12 +7,12 @@
 //
 
 #import "TwoViewController.h"
-#import "WRCustomNavigationBar.h"
+#import "WRCustomNavigationBarNavView.h"
 #import "CGXNavigationBarNavView.h"
 #import "CGXNavigationBarOC.h"
 @interface TwoViewController ()
 
-@property (nonatomic, strong) WRCustomNavigationBar *customNavBar;
+@property (nonatomic, strong) WRCustomNavigationBarNavView *customNavBar;
 @end
 
 @implementation TwoViewController
@@ -45,10 +45,10 @@
     }
 }
 
-- (WRCustomNavigationBar *)customNavBar
+- (WRCustomNavigationBarNavView *)customNavBar
 {
     if (_customNavBar == nil) {
-        _customNavBar = [WRCustomNavigationBar CustomNavigationBar];
+        _customNavBar = [WRCustomNavigationBarNavView CustomNavigationBar];
     }
     return _customNavBar;
 }
