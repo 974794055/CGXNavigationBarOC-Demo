@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "CGXNavigationBarNavView.h"
-
+#import "CGXNavigationBarOC.h"
 #import "OneViewController.h"
 #import "TwoViewController.h"
 @interface ViewController ()
@@ -48,7 +48,6 @@
          [weakSelf pushVC];
     }];
   
-     [self.navigationController.navigationBar navBarBackGroundColor:[UIColor colorWithWhite:0.93 alpha:1] isOpaque:YES];
 }
 
 - (void)pushVC

@@ -7,12 +7,12 @@
 //
 
 #import "TwoViewController.h"
-
+#import "WRCustomNavigationBar.h"
 #import "CGXNavigationBarNavView.h"
-
+#import "CGXNavigationBarOC.h"
 @interface TwoViewController ()
 
-@property (nonatomic, strong) CGXNavigationBarNavView *customNavBar;
+@property (nonatomic, strong) WRCustomNavigationBar *customNavBar;
 @end
 
 @implementation TwoViewController
@@ -22,8 +22,8 @@
     // Do any additional setup after loading the view.
     [self bgColor];
  __weak typeof(self) weakSelf = self;
- 
-    
+  [self bgColor];
+
     
     self.navigationController.navigationBar.hidden = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -32,66 +32,89 @@
 
 - (void)setupNavBar
 {
-     self.customNavBar = [CGXNavigationBarNavView CustomNavigationBar];
     [self.view addSubview:self.customNavBar];
-    self.customNavBar.backColor = [UIColor orangeColor];
+
     // 设置自定义导航栏背景图片
-//    self.customNavBar.backImage = [UIImage imageNamed:@"millcolorGrad"];
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:@"Arrow"] forState:UIControlStateNormal];
-    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    btn.titleLabel.numberOfLines = 0;
-    [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    btn.frame = CGRectMake(0, 44, 60, 44);
-    btn.userInteractionEnabled = YES;
-    [self.customNavBar addSubview:btn];
+    self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"millcolorGrad"];
+
+    // 设置自定义导航栏标题颜色
+    self.customNavBar.titleLabelColor = [UIColor whiteColor];
+
+    if (self.navigationController.childViewControllers.count != 1) {
+        [self.customNavBar gx_setLeftButtonWithTitle:@"<<" titleColor:[UIColor whiteColor]];
+    }
 }
 
-- (void)back
+- (WRCustomNavigationBar *)customNavBar
 {
-//    [self.navigationController popViewControllerAnimated:YES];
-      [self wr_toLastViewController];
+    if (_customNavBar == nil) {
+        _customNavBar = [WRCustomNavigationBar CustomNavigationBar];
+    }
+    return _customNavBar;
 }
 
-- (void)wr_toLastViewController
-{
-    if (self.navigationController) {
-        if (self.navigationController.viewControllers.count == 1) {
-            if (self.presentingViewController) {
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        } else {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    } else if(self.presentingViewController) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-
-- (UIViewController*)wr_currentViewController {
-    UIViewController* rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-    return [self wr_currentViewControllerFrom:rootViewController];
-}
-
-- (UIViewController*)wr_currentViewControllerFrom:(UIViewController*)viewController
-{
-    if ([viewController isKindOfClass:[UINavigationController class]]) {
-        UINavigationController* navigationController = (UINavigationController *)viewController;
-        return [self wr_currentViewControllerFrom:navigationController.viewControllers.lastObject];
-    }
-    else if([viewController isKindOfClass:[UITabBarController class]]) {
-        UITabBarController* tabBarController = (UITabBarController *)viewController;
-        return [self wr_currentViewControllerFrom:tabBarController.selectedViewController];
-    }
-    else if (viewController.presentedViewController != nil) {
-        return [self wr_currentViewControllerFrom:viewController.presentedViewController];
-    }
-    else {
-        return viewController;
-    }
-}
+//- (void)setupNavBar
+//{
+//     self.customNavBar = [CGXNavigationBarNavView CustomNavigationBar];
+//    [self.view addSubview:self.customNavBar];
+//    self.customNavBar.backColor = [UIColor orangeColor];
+//    // 设置自定义导航栏背景图片
+////    self.customNavBar.backImage = [UIImage imageNamed:@"millcolorGrad"];
+//
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [btn setImage:[UIImage imageNamed:@"Arrow"] forState:UIControlStateNormal];
+//    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+//    btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+//    btn.titleLabel.numberOfLines = 0;
+//    [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+//    btn.frame = CGRectMake(0, 44, 60, 44);
+//    btn.userInteractionEnabled = YES;
+//    [self.customNavBar addSubview:btn];
+//}
+//
+//- (void)back
+//{
+////    [self.navigationController popViewControllerAnimated:YES];
+//      [self gx_toLastViewController];
+//}
+//
+//- (void)gx_toLastViewController
+//{
+//    if (self.navigationController) {
+//        if (self.navigationController.viewControllers.count == 1) {
+//            if (self.presentingViewController) {
+//                [self dismissViewControllerAnimated:YES completion:nil];
+//            }
+//        } else {
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }
+//    } else if(self.presentingViewController) {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+//}
+//
+//- (UIViewController*)gx_currentViewController {
+//    UIViewController* rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+//    return [self gx_currentViewControllerFrom:rootViewController];
+//}
+//
+//- (UIViewController*)gx_currentViewControllerFrom:(UIViewController*)viewController
+//{
+//    if ([viewController isKindOfClass:[UINavigationController class]]) {
+//        UINavigationController* navigationController = (UINavigationController *)viewController;
+//        return [self gx_currentViewControllerFrom:navigationController.viewControllers.lastObject];
+//    }
+//    else if([viewController isKindOfClass:[UITabBarController class]]) {
+//        UITabBarController* tabBarController = (UITabBarController *)viewController;
+//        return [self gx_currentViewControllerFrom:tabBarController.selectedViewController];
+//    }
+//    else if (viewController.presentedViewController != nil) {
+//        return [self gx_currentViewControllerFrom:viewController.presentedViewController];
+//    }
+//    else {
+//        return viewController;
+//    }
+//}
 
 /*
 #pragma mark - Navigation

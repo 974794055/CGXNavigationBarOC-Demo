@@ -1,9 +1,9 @@
 //
 //  UIViewController+CGXBarButtonBase.h
-//  UINavigation-CGXBarFixSpace
+//  CGXNavigationBarOC-Demo
 //
-//  Created by CGX on 2017/11/13.
-//  Copyright © 2017年 CGX. All rights reserved.
+//  Created by CGX on 2019/10/1.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

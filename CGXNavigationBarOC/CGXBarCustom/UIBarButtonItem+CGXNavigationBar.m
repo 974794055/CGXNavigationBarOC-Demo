@@ -2,7 +2,7 @@
 //  UIBarButtonItem+CGXNavigationBar.m
 //  CGXNavigationBarOC-Demo
 //
-//  Created by CGX on 2019/10/30.
+//  Created by CGX on 2019/10/1.
 //  Copyright © 2019 CGX. All rights reserved.
 //
 
@@ -10,6 +10,9 @@
 #import <objc/runtime.h>
 #import "UIButton+CGXBarButtonImageTitleSpace.h"
 #import "UIButton+CGXBarButtonBlock.h"
+
+#define CGXBarButtonHeight    44
+
 @interface UIBarButtonItem()
 
 @property (nonatomic , copy) CGXBarButtonItemSelectBlock selectBlock;
@@ -123,12 +126,11 @@
     [button sizeToFit];
     button.backgroundColor = [UIColor orangeColor];
     if (button.frame.size.width<40) {
-        button.bounds = CGRectMake(0, 0, 40+model.itemSpace, 44);
+        button.bounds = CGRectMake(0, 0, 40+model.itemSpace, CGXBarButtonHeight);
     } else{
-        button.bounds = CGRectMake(0, 0, button.frame.size.width+model.itemSpace, 44);
+        button.bounds = CGRectMake(0, 0, button.frame.size.width+model.itemSpace, CGXBarButtonHeight);
     }
     __weak typeof(button) weakBtn = button;
-//    __weak typeof(model) weakModel = model;
     [button addTapBlock:^(UIButton * _Nonnull btn) {
         if (selectBlock) {
             selectBlock(weakBtn,model);

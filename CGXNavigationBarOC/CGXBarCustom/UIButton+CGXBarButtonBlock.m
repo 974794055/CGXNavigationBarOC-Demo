@@ -1,9 +1,9 @@
 //
-//  UIButton+CGXTableViewGeneralBtnBlock.m
-//  CGXTableViewGeneralView
+//  UIButton+CGXNavigationBar.m
+//  CGXNavigationBarOC-Demo
 //
-//  Created by CGX on 2018/12/28.
-//  Copyright © 2018年 CGX. All rights reserved.
+//  Created by CGX on 2019/10/1.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
 #import "UIButton+CGXBarButtonBlock.h"

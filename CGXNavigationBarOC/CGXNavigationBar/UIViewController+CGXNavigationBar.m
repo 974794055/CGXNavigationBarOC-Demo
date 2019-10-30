@@ -1,16 +1,16 @@
 //
-//  UIViewController+CGXBarButtonBase.m
-//  CGXConfigBarButton
+//  UIViewController+CGXNavigationBar.m
+//  CGXNavigationBarOC-Demo
 //
-//  Created by CGX on 2017/11/13.
-//  Copyright © 2017年 CGX. All rights reserved.
+//  Created by CGX on 2019/10/1.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
 #import "UIViewController+CGXNavigationBar.h"
 #import <objc/runtime.h>
 #import "UIButton+CGXBarButtonBlock.h"
 
-#define CGXBarButtonHeight    44
+
 
 @implementation UIViewController (CGXNavigationBar)
 

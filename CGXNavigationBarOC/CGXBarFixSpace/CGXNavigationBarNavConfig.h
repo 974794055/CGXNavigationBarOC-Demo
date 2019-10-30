@@ -1,9 +1,9 @@
 //
 //  CGXNavigationBarNavConfig.h
-//  CGXCustomNavigationBar
+//  CGXNavigationBarOC-Demo
 //
-//  Created by charles on 2018/4/20.
-//  Copyright © 2018年 None. All rights reserved.
+//  Created by CGX on 2019/10/1.
+//  Copyright © 2019 CGX. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
