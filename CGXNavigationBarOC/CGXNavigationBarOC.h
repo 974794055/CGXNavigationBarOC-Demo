@@ -11,8 +11,11 @@
 
 #import "CGXNavigationBarNavConfig.h"
 
+#import "CGXNavigationBarNavView.h"
+
 #import "UIViewController+CGXNavigationBar.h"
-#import "UIBarButtonItem+CGXNavigationBar.h"
+#import "UINavigationBar+CGXNavigationBarView.h"
+#import "UIViewController+CGXNavigationBarView.h"
 
 #import "UIBarButtonItem+CGXNavigationBar.h"
 #import "UIImage+CGXNavigationBar.h"

@@ -76,8 +76,8 @@
                            Target:(CGXBarButtonItemSelectBlock)selectBlock
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-     button.tag = model.itemTag;
-    button.bounds = CGRectMake(0, 0, 44, 44);
+    button.tag = model.itemTag;
+    button.bounds = CGRectMake(0, 0, CGXBarButtonHeight, CGXBarButtonHeight);
     switch (model.style) {
         case ItemModelStyleTitle:
         {
@@ -86,7 +86,9 @@
             [button setTitle:model.itemNormalTitle forState:UIControlStateHighlighted];
             
             button.titleLabel.font = model.itemNormalFont ? model.itemNormalFont:nil;
+            
             [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateSelected];
             [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         }
             break;
@@ -99,8 +101,13 @@
         case ItemModelStyleAll:
         {
             [button setTitle:model.itemNormalTitle forState:UIControlStateNormal];
+            [button setTitle:model.itemNormalTitle forState:UIControlStateSelected];
+            [button setTitle:model.itemNormalTitle forState:UIControlStateHighlighted];
+            
             button.titleLabel.font = model.itemNormalFont?model.itemNormalFont:nil;
+            
             [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateSelected];
             [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateHighlighted];
             
             [button setImage:[model.itemNormalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
@@ -124,7 +131,6 @@
             break;
     }
     [button sizeToFit];
-    button.backgroundColor = [UIColor orangeColor];
     if (button.frame.size.width<40) {
         button.bounds = CGRectMake(0, 0, 40+model.itemSpace, CGXBarButtonHeight);
     } else{
@@ -136,6 +142,7 @@
             selectBlock(weakBtn,model);
         }
     }];
+//    button.backgroundColor = [UIColor orangeColor];
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 @end

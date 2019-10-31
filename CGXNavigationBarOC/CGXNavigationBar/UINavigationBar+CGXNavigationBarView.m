@@ -11,12 +11,12 @@
 #import "sys/utsname.h"
 
 @implementation UINavigationBar (CGXNavigationBarView)
-static char kWRBackgroundViewKey;
-static char kWRBackgroundImageViewKey;
-static char kWRBackgroundImageKey;
+static char GXBackgroundViewKey;
+static char GXBackgroundImageViewKey;
+static char GXBackgroundImageKey;
 
 - (UIView *)backgroundView {
-    return (UIView *)objc_getAssociatedObject(self, &kWRBackgroundViewKey);
+    return (UIView *)objc_getAssociatedObject(self, &GXBackgroundViewKey);
 }
 - (void)setBackgroundView:(UIView *)backgroundView {
     if (backgroundView) {
@@ -26,20 +26,20 @@ static char kWRBackgroundImageKey;
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     }
-    objc_setAssociatedObject(self, &kWRBackgroundViewKey, backgroundView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &GXBackgroundViewKey, backgroundView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (UIImageView *)backgroundImageView {
-    return (UIImageView *)objc_getAssociatedObject(self, &kWRBackgroundImageViewKey);
+    return (UIImageView *)objc_getAssociatedObject(self, &GXBackgroundImageViewKey);
 }
 - (void)setBackgroundImageView:(UIImageView *)bgImageView {
-    objc_setAssociatedObject(self, &kWRBackgroundImageViewKey, bgImageView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &GXBackgroundImageViewKey, bgImageView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (UIImage *)backgroundImage {
-    return (UIImage *)objc_getAssociatedObject(self, &kWRBackgroundImageKey);
+    return (UIImage *)objc_getAssociatedObject(self, &GXBackgroundImageKey);
 }
 - (void)setBackgroundImage:(UIImage *)image {
-    objc_setAssociatedObject(self, &kWRBackgroundImageKey, image, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &GXBackgroundImageKey, image, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 // set navigationBar backgroundImage

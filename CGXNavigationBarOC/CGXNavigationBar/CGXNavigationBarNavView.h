@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "UINavigationBar+CGXNavigationBarView.h"
 #import "UIViewController+CGXNavigationBarView.h"
-#import "UINavigationController+CGXNavigationBarView.h"
-@class WRCustomNavigationBar;
+
+@class CGXNavigationBarNavView;
 
 @interface CGXNavigationBarNavView : UIView
 + (BOOL)isIphoneX;
@@ -18,7 +18,6 @@
 + (CGFloat)tabBarHeight;
 + (CGFloat)screenWidth;
 + (CGFloat)screenHeight;
-
 
 /// 局部使用该库       待开发
 //+ (void)gx_local;
@@ -32,30 +31,36 @@
 
 /** set default barTintColor of UINavigationBar */
 + (void)gx_setDefaultNavBarBarTintColor:(UIColor *)color;
-+ (UIColor *)defaultNavBarBarTintColor;
 
 /** set default barBackgroundImage of UINavigationBar */
-/** warning: gx_setDefaultNavBarBackgroundImage is deprecated! place use WRCustomNavigationBar */
 + (void)gx_setDefaultNavBarBackgroundImage:(UIImage *)image;
-+ (UIImage *)defaultNavBarBackgroundImage;
 
 /** set default tintColor of UINavigationBar */
 + (void)gx_setDefaultNavBarTintColor:(UIColor *)color;
-+ (UIColor *)defaultNavBarTintColor;
+
 
 /** set default titleColor of UINavigationBar */
 + (void)gx_setDefaultNavBarTitleColor:(UIColor *)color;
-+ (UIColor *)defaultNavBarTitleColor;
+
 
 /** set default statusBarStyle of UIStatusBar */
 + (void)gx_setDefaultStatusBarStyle:(UIStatusBarStyle)style;
-+ (UIStatusBarStyle)defaultStatusBarStyle;
+
 
 /** set default shadowImage isHidden of UINavigationBar */
 + (void)gx_setDefaultNavBarShadowImageHidden:(BOOL)hidden;
+
+
+
+/**
+     内部使用
+ */
++ (UIColor *)defaultNavBarBarTintColor;
++ (UIImage *)defaultNavBarBackgroundImage;
++ (UIColor *)defaultNavBarTintColor;
++ (UIColor *)defaultNavBarTitleColor;
++ (UIStatusBarStyle)defaultStatusBarStyle;
 + (BOOL)defaultNavBarShadowImageHidden;
-
-
 + (BOOL)needUpdateNavigationBar:(UIViewController *)vc;
 
 

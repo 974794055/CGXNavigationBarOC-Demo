@@ -7,12 +7,12 @@
 //
 
 #import "TwoViewController.h"
-#import "WRCustomNavigationBar.h"
+#import "CGXCustomNavigationBarNavView.h"
 #import "CGXNavigationBarNavView.h"
 #import "CGXNavigationBarOC.h"
 @interface TwoViewController ()
 
-@property (nonatomic, strong) WRCustomNavigationBar *customNavBar;
+@property (nonatomic, strong) CGXCustomNavigationBarNavView *customNavBar;
 @end
 
 @implementation TwoViewController
@@ -40,15 +40,15 @@
     // 设置自定义导航栏标题颜色
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
 
-    if (self.navigationController.childViewControllers.count != 1) {
-        [self.customNavBar gx_setLeftButtonWithTitle:@"<<" titleColor:[UIColor whiteColor]];
-    }
+    [self.customNavBar leftWithImage:[UIImage imageNamed:@"Arrow"] Target:^(UIButton *btn, CGXNavigationBarItemModel *item) {
+        
+    }];
 }
 
-- (WRCustomNavigationBar *)customNavBar
+- (CGXCustomNavigationBarNavView *)customNavBar
 {
     if (_customNavBar == nil) {
-        _customNavBar = [WRCustomNavigationBar CustomNavigationBar];
+        _customNavBar = [CGXCustomNavigationBarNavView customNavigationBar];
     }
     return _customNavBar;
 }

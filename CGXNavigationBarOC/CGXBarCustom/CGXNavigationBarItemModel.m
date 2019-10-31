@@ -19,7 +19,7 @@
         self.itemNormalColor = [UIColor blackColor];
         self.itemNormalFont = [UIFont systemFontOfSize:14];
         self.itemTag = 10000;
-        self.itemSpace = 5;
+        self.itemSpace = 0;
         
     }
     return self;

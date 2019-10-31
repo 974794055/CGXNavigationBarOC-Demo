@@ -11,22 +11,22 @@
 #import <objc/runtime.h>
 #import "sys/utsname.h"
 #import "UIColor+CGXNavigationBar.h"
-
+#import "UIViewController+CGXNavigationBarViewPush.h"
 @implementation UINavigationController (CGXNavigationBarView)
 
-static CGFloat wrPopDuration = 0.12;
-static int wrPopDisplayCount = 0;
-- (CGFloat)wrPopProgress {
-    CGFloat all = 60 * wrPopDuration;
-    int current = MIN(all, wrPopDisplayCount);
+static CGFloat gxPopDuration = 0.12;
+static int gxPopDisplayCount = 0;
+- (CGFloat)gxPopProgress {
+    CGFloat all = 60 * gxPopDuration;
+    int current = MIN(all, gxPopDisplayCount);
     return current / all;
 }
 
-static CGFloat wrPushDuration = 0.10;
-static int wrPushDisplayCount = 0;
-- (CGFloat)wrPushProgress {
-    CGFloat all = 60 * wrPushDuration;
-    int current = MIN(all, wrPushDisplayCount);
+static CGFloat gxPushDuration = 0.10;
+static int gxPushDisplayCount = 0;
+- (CGFloat)gxPushProgress {
+    CGFloat all = 60 * gxPushDuration;
+    int current = MIN(all, gxPushDisplayCount);
     return current / all;
 }
 
@@ -124,9 +124,9 @@ static int wrPushDisplayCount = 0;
     [CATransaction setCompletionBlock:^{
         [displayLink invalidate];
         displayLink = nil;
-        wrPopDisplayCount = 0;
+        gxPopDisplayCount = 0;
     }];
-    [CATransaction setAnimationDuration:wrPopDuration];
+    [CATransaction setAnimationDuration:gxPopDuration];
     [CATransaction begin];
     NSArray<UIViewController *> *vcs = [self gx_popToViewController:viewController animated:animated];
     [CATransaction commit];
@@ -139,9 +139,9 @@ static int wrPushDisplayCount = 0;
     [CATransaction setCompletionBlock:^{
         [displayLink invalidate];
         displayLink = nil;
-        wrPopDisplayCount = 0;
+        gxPopDisplayCount = 0;
     }];
-    [CATransaction setAnimationDuration:wrPopDuration];
+    [CATransaction setAnimationDuration:gxPopDuration];
     [CATransaction begin];
     NSArray<UIViewController *> *vcs = [self gx_popToRootViewControllerAnimated:animated];
     [CATransaction commit];
@@ -151,8 +151,8 @@ static int wrPushDisplayCount = 0;
 // change navigationBar barTintColor smooth before pop to current VC finished
 - (void)popNeedDisplay {
     if (self.topViewController != nil && self.topViewController.transitionCoordinator != nil) {
-        wrPopDisplayCount += 1;
-        CGFloat popProgress = [self wrPopProgress];
+        gxPopDisplayCount += 1;
+        CGFloat popProgress = [self gxPopProgress];
         UIViewController *fromVC = [self.topViewController.transitionCoordinator viewControllerForKey:UITransitionContextFromViewControllerKey];
         UIViewController *toVC = [self.topViewController.transitionCoordinator viewControllerForKey:UITransitionContextToViewControllerKey];
         [self updateNavigationBarWithFromVC:fromVC toVC:toVC progress:popProgress];
@@ -165,10 +165,10 @@ static int wrPushDisplayCount = 0;
     [CATransaction setCompletionBlock:^{
         [displayLink invalidate];
         displayLink = nil;
-        wrPushDisplayCount = 0;
+        gxPushDisplayCount = 0;
         [viewController setPushToCurrentVCFinished:YES];
     }];
-    [CATransaction setAnimationDuration:wrPushDuration];
+    [CATransaction setAnimationDuration:gxPushDuration];
     [CATransaction begin];
     [self gx_pushViewController:viewController animated:animated];
     [CATransaction commit];
@@ -177,8 +177,8 @@ static int wrPushDisplayCount = 0;
 // change navigationBar barTintColor smooth before push to current VC finished or before pop to current VC finished
 - (void)pushNeedDisplay {
     if (self.topViewController != nil && self.topViewController.transitionCoordinator != nil) {
-        wrPushDisplayCount += 1;
-        CGFloat pushProgress = [self wrPushProgress];
+        gxPushDisplayCount += 1;
+        CGFloat pushProgress = [self gxPushProgress];
         UIViewController *fromVC = [self.topViewController.transitionCoordinator viewControllerForKey:UITransitionContextFromViewControllerKey];
         UIViewController *toVC = [self.topViewController.transitionCoordinator viewControllerForKey:UITransitionContextToViewControllerKey];
         [self updateNavigationBarWithFromVC:fromVC toVC:toVC progress:pushProgress];

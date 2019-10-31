@@ -24,8 +24,6 @@
     __weak typeof(self) weakSelf = self;
     UIBarButtonItem *item1 =  [UIBarButtonItem itemWithTitle:@"哈哈哈" font:[UIFont systemFontOfSize:14] titleColor:[UIColor blackColor] Target:^(UIButton * _Nonnull btn, CGXNavigationBarItemModel * _Nonnull item) {
         NSLog(@"%ld--%ld" , btn.tag,item.style);
-        TwoViewController *vc = [[TwoViewController alloc] init];
-        [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     UIBarButtonItem *item2 =  [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"Arrow"] Target:^(UIButton * _Nonnull btn, CGXNavigationBarItemModel * _Nonnull item) {
          NSLog(@"%ld--%ld" , btn.tag,item.style);
@@ -37,8 +35,12 @@
          NSLog(@"%ld--%ld" , btn.tag,item.style);
     }];
     
-    self.navigationItem.leftBarButtonItems = @[item1,item2];
-    self.navigationItem.rightBarButtonItems = @[item3,item4];
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+
+            spaceItem.width = 1;
+    
+    self.navigationItem.leftBarButtonItems = @[item1,spaceItem,item2];
+    self.navigationItem.rightBarButtonItems = @[item3,spaceItem,item4];
     [self bgColor:[UIColor whiteColor]];
     
     [self setNavTitle:@"哈哈"];

@@ -11,9 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (CGXNavigationBarView)
-/** record current ViewController navigationBar backgroundImage */
-/** warning: gx_setDefaultNavBarBackgroundImage is deprecated! place use WRCustomNavigationBar */
-//- (void)gx_setNavBarBackgroundImage:(UIImage *)image;
+
 - (UIImage *)gx_navBarBackgroundImage;
 - (void)gx_setNavBarBackgroundImage:(UIImage *)image;
 
@@ -42,10 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)gx_navBarShadowImageHidden;
 
 /** record current ViewController custom navigationBar */
-/** warning: gx_setDefaultNavBarBackgroundImage is deprecated! place use WRCustomNavigationBar */
-//- (void)gx_setCustomNavBar:(WRCustomNavigationBar *)navBar;
-
-- (void)setPushToCurrentVCFinished:(BOOL)isFinished;
+/** warning: gx_setDefaultNavBarBackgroundImage is deprecated! place use CGXNavigationBarNavView */
+//- (void)gx_setCustomNavBar:(CGXNavigationBarNavView *)navBar;
 
 @end
 
