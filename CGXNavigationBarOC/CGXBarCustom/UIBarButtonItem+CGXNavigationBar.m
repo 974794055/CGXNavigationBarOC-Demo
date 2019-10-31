@@ -130,6 +130,8 @@
         default:
             break;
     }
+//    [button setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [button sizeToFit];
     if (button.frame.size.width<40) {
         button.bounds = CGRectMake(0, 0, 40+model.itemSpace, CGXBarButtonHeight);
@@ -142,7 +144,7 @@
             selectBlock(weakBtn,model);
         }
     }];
-//    button.backgroundColor = [UIColor orangeColor];
+    button.backgroundColor = [UIColor orangeColor];
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 @end

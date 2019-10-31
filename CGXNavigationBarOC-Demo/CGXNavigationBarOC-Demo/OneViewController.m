@@ -9,6 +9,7 @@
 #import "OneViewController.h"
 #import "CGXNavigationBarNavView.h"
 #import "CGXNavigationBarOC.h"
+
 @interface OneViewController ()
 
 @end
@@ -38,6 +39,8 @@
     }];
     
     [self addNavBack];
+    
+
 }
 - (void)viewWillAppear:(BOOL)animated
 {

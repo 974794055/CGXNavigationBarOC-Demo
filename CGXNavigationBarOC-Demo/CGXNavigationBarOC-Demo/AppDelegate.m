@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "CGXNavigationBarNavView.h"
+#import "CustomUINavigationBar.h"
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    UINavigationController *nav = [[UINavigationController alloc] initWithNavigationBarClass:[CustomUINavigationBar class] toolbarClass:nil];
+    ViewController *vc = [[ViewController alloc] init];
+    [nav setViewControllers:@[vc]];
+    self.window.rootViewController = nav;
     
     [self setNavBarAppearence];
     return YES;

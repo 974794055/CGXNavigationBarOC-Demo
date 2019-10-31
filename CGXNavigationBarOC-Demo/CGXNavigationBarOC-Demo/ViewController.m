@@ -11,6 +11,8 @@
 #import "CGXNavigationBarOC.h"
 #import "OneViewController.h"
 #import "TwoViewController.h"
+
+#import "CustomUINavigationBar.h"
 @interface ViewController ()
 
 @end
@@ -49,6 +51,10 @@
         NSLog(@"我我-%ld" , btn.tag);
          [weakSelf pushVC];
     }];
+    
+    CustomUINavigationBar *navbar = (CustomUINavigationBar *)self.navigationController.navigationBar;
+    navbar.leftValue = 0;
+    [navbar setItemsSpace:10];
   
 }
 

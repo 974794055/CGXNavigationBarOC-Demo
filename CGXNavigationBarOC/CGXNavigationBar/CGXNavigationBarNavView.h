@@ -13,11 +13,6 @@
 @class CGXNavigationBarNavView;
 
 @interface CGXNavigationBarNavView : UIView
-+ (BOOL)isIphoneX;
-+ (CGFloat)navBarBottom;
-+ (CGFloat)tabBarHeight;
-+ (CGFloat)screenWidth;
-+ (CGFloat)screenHeight;
 
 /// 局部使用该库       待开发
 //+ (void)gx_local;

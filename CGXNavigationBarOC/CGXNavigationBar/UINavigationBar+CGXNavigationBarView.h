@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CGXNavigationBarNavView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UINavigationBar (CGXNavigationBarView)<UINavigationBarDelegate>
@@ -28,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 获取当前导航栏在垂直方向上偏移了多少 */
 - (CGFloat)gx_getTranslationY;
+
+
 
 @end
 

@@ -158,38 +158,23 @@
 
 #pragma mark -- 左侧按钮
 -(void)addBarLeftWithTitle:(NSString *)title
-                Target:(UIViewControllerItemSelectBlock)selectBlock
+                    Target:(UIViewControllerItemSelectBlock)selectBlock
 {
-    CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
-    model.itemNormalTitle = title;
-    model.itemNormalFont = self.barTitltFont;
-    model.itemNormalColor = self.barTitltColor;
-    model.style = ItemModelStyleTitle;
-    [self addBarLeftWithModel:model Target:selectBlock];
+    [self addBarLeftWithTitle:title Image:nil Style:EdgeInsetsStyleTop Target:selectBlock];
 }
 
 -(void)addBarLeftWithImage:(UIImage *)image
-                           Target:(UIViewControllerItemSelectBlock)selectBlock
+                    Target:(UIViewControllerItemSelectBlock)selectBlock
 {
-    CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
-    model.itemNormalImage = image;
-    model.style = ItemModelStyleImage;
-    [self addBarLeftWithModel:model Target:selectBlock];
+    [self addBarLeftWithTitle:nil Image:image Style:EdgeInsetsStyleTop Target:selectBlock];
 }
 
 -(void)addBarLeftWithTitle:(NSString *)title
-                            Image:(UIImage *)image
-                            Style:(CGXNavigationBarItemModelEdgeInsetsStyle)style
-                           Target:(UIViewControllerItemSelectBlock)selectBlock
+                     Image:(UIImage *)image
+                     Style:(CGXNavigationBarItemModelEdgeInsetsStyle)style
+                    Target:(UIViewControllerItemSelectBlock)selectBlock
 {
-    CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
-    model.itemNormalTitle = title;
-    model.itemNormalFont = self.barTitltFont;
-    model.itemNormalColor = self.barTitltColor;
-     model.itemNormalImage = image;
-    model.style = ItemModelStyleAll;
-    model.edgeInsetsStyle = style;
-    [self addBarLeftWithModel:model Target:selectBlock];
+    [self itemBarWithTitle:title Image:image Style:style IsLeft:NO Target:selectBlock];
 }
 -(void)addBarLeftWithModel:(CGXNavigationBarItemModel *)model
                     Target:(UIViewControllerItemSelectBlock)selectBlock
@@ -199,62 +184,83 @@
 -(void)addBarLeftMorelWithArr:(NSArray<CGXNavigationBarItemModel *> *)array
                        Target:(UIViewControllerItemSelectBlock)selectBlock
 {
-   
-    NSMutableArray *itemArr  =[NSMutableArray array];
-    for (CGXNavigationBarItemModel *model in array) {
-        UIBarButtonItem *item = [UIBarButtonItem itemWithModel:model Target:^(UIButton * _Nonnull sender, CGXNavigationBarItemModel * _Nonnull item) {
-            if (selectBlock) {
-                selectBlock(sender,item);
-            };
-        }];
-        [itemArr addObject:item];
-    }
-    self.navigationItem.leftBarButtonItems = itemArr;
+    [self itemBarMorelWithArr:array IsLeft:YES Target:selectBlock];
 }
 #pragma mark -- 右侧按钮
 -(void)addBarRightWithTitle:(NSString *)title
-                Target:(UIViewControllerItemSelectBlock)selectBlock
+                     Target:(UIViewControllerItemSelectBlock)selectBlock
 {
-    CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
-    model.itemNormalTitle = title;
-    model.itemNormalFont = self.barTitltFont;
-    model.itemNormalColor = self.barTitltColor;
-    model.style = ItemModelStyleTitle;
-    [self addBarRightWithModel:model Target:selectBlock];
+    [self addBarRightWithTitle:title Image:nil Style:EdgeInsetsStyleTop Target:selectBlock];
 }
 
 -(void)addBarRightWithImage:(UIImage *)image
-                           Target:(UIViewControllerItemSelectBlock)selectBlock
+                     Target:(UIViewControllerItemSelectBlock)selectBlock
 {
-    CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
-    model.itemNormalImage = image;
-    model.style = ItemModelStyleImage;
-    [self addBarRightWithModel:model Target:selectBlock];
+    [self addBarRightWithTitle:nil Image:image Style:EdgeInsetsStyleTop Target:selectBlock];
 }
 
 -(void)addBarRightWithTitle:(NSString *)title
-                            Image:(UIImage *)image
-                            Style:(CGXNavigationBarItemModelEdgeInsetsStyle)style
-                           Target:(UIViewControllerItemSelectBlock)selectBlock
+                      Image:(UIImage *)image
+                      Style:(CGXNavigationBarItemModelEdgeInsetsStyle)style
+                     Target:(UIViewControllerItemSelectBlock)selectBlock
 {
-    CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
-    model.itemNormalTitle = title;
-    model.itemNormalFont = self.barTitltFont;
-    model.itemNormalColor = self.barTitltColor;
-     model.itemNormalImage = image;
-    model.style = ItemModelStyleAll;
-    model.edgeInsetsStyle = style;
-    [self addBarRightWithModel:model Target:selectBlock];
+    [self itemBarWithTitle:title Image:image Style:style IsLeft:NO Target:selectBlock];
 }
 -(void)addBarRightWithModel:(CGXNavigationBarItemModel *)model
-                    Target:(UIViewControllerItemSelectBlock)selectBlock
+                     Target:(UIViewControllerItemSelectBlock)selectBlock
 {
     [self addBarRightMorelWithArr:@[model] Target:selectBlock];
 }
 -(void)addBarRightMorelWithArr:(NSArray<CGXNavigationBarItemModel *> *)array
-                       Target:(UIViewControllerItemSelectBlock)selectBlock
+                        Target:(UIViewControllerItemSelectBlock)selectBlock
 {
-   
+    [self itemBarMorelWithArr:array IsLeft:NO Target:selectBlock];
+}
+
+
+
+-(void)itemBarWithTitle:(NSString *)title
+                  Image:(UIImage *)image
+                  Style:(CGXNavigationBarItemModelEdgeInsetsStyle)style
+                 IsLeft:(BOOL)isLeft
+                 Target:(UIViewControllerItemSelectBlock)selectBlock
+{
+    CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
+    if (title) {
+        model.itemNormalTitle = title;
+        model.itemNormalFont = self.barTitltFont;
+        model.itemNormalColor = self.barTitltColor;
+    }
+    if (image) {
+        model.itemNormalImage = image;
+    }
+    
+    if (title) {
+        if (image) {
+            model.style = ItemModelStyleAll;
+        } else{
+            model.style = ItemModelStyleTitle;
+        }
+    } else{
+        model.style = ItemModelStyleImage;
+    }
+    model.edgeInsetsStyle = style;
+    
+    if (title || image) {
+        if (isLeft) {
+            [self addBarLeftWithModel:model Target:selectBlock];
+        } else{
+            [self addBarRightWithModel:model Target:selectBlock];
+        }
+    }
+}
+
+
+-(void)itemBarMorelWithArr:(NSArray<CGXNavigationBarItemModel *> *)array
+                    IsLeft:(BOOL)isLeft
+                    Target:(UIViewControllerItemSelectBlock)selectBlock
+{
+    
     NSMutableArray *itemArr  =[NSMutableArray array];
     for (CGXNavigationBarItemModel *model in array) {
         UIBarButtonItem *item = [UIBarButtonItem itemWithModel:model Target:^(UIButton * _Nonnull sender, CGXNavigationBarItemModel * _Nonnull item) {
@@ -264,8 +270,15 @@
         }];
         [itemArr addObject:item];
     }
-    self.navigationItem.rightBarButtonItems = itemArr;
+    if (itemArr.count>0) {
+        if (isLeft) {
+            self.navigationItem.leftBarButtonItems = itemArr;
+        } else{
+            self.navigationItem.rightBarButtonItems = itemArr;
+        }
+    }
 }
+
 
 @end
 

@@ -9,7 +9,7 @@
 #import "UINavigationBar+CGXNavigationBarView.h"
 #import <objc/runtime.h>
 #import "sys/utsname.h"
-
+#import "CGXNavigationBarTools.h"
 @implementation UINavigationBar (CGXNavigationBarView)
 static char GXBackgroundViewKey;
 static char GXBackgroundImageViewKey;
@@ -50,7 +50,7 @@ static char GXBackgroundImageKey;
         // add a image(nil color) to _UIBarBackground make it clear
         [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         if (self.subviews.count > 0) {
-            self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), [CGXNavigationBarNavView navBarBottom])];
+            self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), [CGXNavigationBarTools navBarBottom])];
             self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             
             // _UIBarBackground is first subView for navigationBar
@@ -69,7 +69,7 @@ static char GXBackgroundImageKey;
     if (self.backgroundView == nil) {
         // add a image(nil color) to _UIBarBackground make it clear
         [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        self.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), [CGXNavigationBarNavView navBarBottom])];
+        self.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), [CGXNavigationBarTools navBarBottom])];
         self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         // _UIBarBackground is first subView for navigationBar
         [self.subviews.firstObject insertSubview:self.backgroundView atIndex:0];
@@ -89,7 +89,7 @@ static char GXBackgroundImageKey;
         Class _UIBarBackgroundClass = NSClassFromString(@"_UIBarBackground");
         if (_UIBarBackgroundClass != nil) {
             if ([view isKindOfClass:_UIBarBackgroundClass]) {
-                view.frame = CGRectMake(0, self.frame.size.height-[CGXNavigationBarNavView navBarBottom], [CGXNavigationBarNavView screenWidth], [CGXNavigationBarNavView navBarBottom]);
+                view.frame = CGRectMake(0, self.frame.size.height-[CGXNavigationBarTools navBarBottom], [CGXNavigationBarTools screenWidth], [CGXNavigationBarTools navBarBottom]);
             }
         }
     }
