@@ -98,10 +98,14 @@
     [attributedStr addAttribute:NSFontAttributeName
                           value:font
                           range:NSMakeRange(0, title.length)];
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
-    [paragraphStyle setLineSpacing:4];
+    
+    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+    paraStyle.lineBreakMode =NSLineBreakByCharWrapping;
+    paraStyle.alignment = NSTextAlignmentCenter;
+    paraStyle.lineSpacing = 1;
+    paraStyle.paragraphSpacing  = 1;
     [attributedStr addAttribute:NSParagraphStyleAttributeName
-                          value:paragraphStyle
+                          value:paraStyle
                           range:NSMakeRange(0, title.length)];
     [self setNavAttributedString:attributedStr Block:block];
 }

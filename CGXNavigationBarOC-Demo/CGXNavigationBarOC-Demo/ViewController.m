@@ -12,7 +12,6 @@
 #import "OneViewController.h"
 #import "TwoViewController.h"
 
-#import "CustomUINavigationBar.h"
 @interface ViewController ()
 
 @end
@@ -47,14 +46,10 @@
     
     [self setNavTitle:@"哈哈"];
     
-    [self setNavTitle:@"我我" withColor:[UIColor redColor] Font:[UIFont systemFontOfSize:18] Block:^(UIButton *btn) {
+    [self setNavTitle:@"出校" withColor:[UIColor redColor] Font:[UIFont systemFontOfSize:18] Block:^(UIButton *btn) {
         NSLog(@"我我-%ld" , btn.tag);
          [weakSelf pushVC];
     }];
-    
-    CustomUINavigationBar *navbar = (CustomUINavigationBar *)self.navigationController.navigationBar;
-    navbar.leftValue = 0;
-    [navbar setItemsSpace:10];
   
 }
 

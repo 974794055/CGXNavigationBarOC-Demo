@@ -8,6 +8,8 @@
 
 #import "CGXNavigationBarNavConfig.h"
 
+
+
 @implementation CGXNavigationBarNavConfig
 
 + (instancetype)shared {
@@ -39,3 +41,7 @@
 }
 
 @end
+
+
+
+
