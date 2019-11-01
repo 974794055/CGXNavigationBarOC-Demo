@@ -33,10 +33,13 @@
             if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
                 if (CGXBar_deviceVersion >= 13.0) {
                     [UIView animateWithDuration:0 animations:^{
-                        UIEdgeInsets margins = subview.layoutMargins;
-                        margins = UIEdgeInsetsMake(margins.top, margins.left - space, margins.bottom, margins.right - space);//可修正iOS11之后的偏移
-                        subview.frame = CGRectMake(-margins.left, -margins.top, margins.left + margins.right + subview.frame.size.width, margins.top + margins.bottom + subview.frame.size.height);
+//                        UIEdgeInsets margins = subview.layoutMargins;
+//                        margins = UIEdgeInsetsMake(margins.top, margins.left - space, margins.bottom, margins.right - space);//可修正iOS11之后的偏移
+//                        subview.frame = CGRectMake(-margins.left, -margins.top, margins.left + margins.right + subview.frame.size.width, margins.top + margins.bottom + subview.frame.size.height);
+                    UIEdgeInsets margins = subview.layoutMargins;
+                    subview.frame = CGRectMake(-margins.left, -margins.top, margins.left + margins.right + subview.frame.size.width, margins.top + margins.bottom + subview.frame.size.height);
                     }];
+
                 } else {
                     subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);//可修正iOS11之后的偏移
                 }

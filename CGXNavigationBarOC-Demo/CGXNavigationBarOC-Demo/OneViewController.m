@@ -22,7 +22,8 @@
     [self bgColor];
     __weak typeof(self) weakSelf = self;
     
-    NSArray *arr = @[@"哈1",@"哈2",@"哈3"];
+//    NSArray *arr = @[@"哈1",@"哈2",@"哈3"];
+        NSArray *arr = @[@"哈1"];
     NSMutableArray *itemArr  =[NSMutableArray array];
     for (int i = 0; i<arr.count; i++) {
         CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
