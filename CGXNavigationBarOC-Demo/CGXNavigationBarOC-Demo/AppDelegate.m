@@ -24,20 +24,12 @@
 
 - (void)setNavBarAppearence
 {
-//    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor purpleColor]}];
-//    [UINavigationBar appearance].tintColor = [UIColor yellowColor];
-//    [UINavigationBar appearance].barTintColor = [UIColor redColor];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [UIApplication sharedApplication].statusBarHidden = NO;
+
 
     // 设置是 广泛使用CGXNavigationBarNavView，还是局部使用CGXNavigationBarNavView，目前默认是广泛使用
     [CGXNavigationBarNavView gx_widely];
-//    [CGXNavigationBarNavView gx_setBlacklist:@[@"SpecialController",
-//                                       @"TZPhotoPickerController",
-//                                       @"TZGifPhotoPreviewController",
-//                                       @"TZAlbumPickerController",
-//                                       @"TZPhotoPreviewController",
-//                                       @"TZVideoPlayerController"]];
+    [CGXNavigationBarNavView gx_setBlacklist:@[@"TwoViewController",
+                                       ]];
     
     // 设置导航栏默认的背景颜色
     [CGXNavigationBarNavView gx_setDefaultNavBarBarTintColor:[UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1]];

@@ -15,16 +15,23 @@ typedef void(^UIViewControllerItemSelectBlock)(UIButton *btn,CGXNavigationBarIte
 @interface UIViewController (CGXNavigationBar)
 
 /**
- 默认黑色
+ 标题默认黑色
+ */
+@property (nonatomic, strong) UIColor *barNavTitltColor;
+/**
+ 标题默认14
+ */
+@property (nonatomic, assign) UIFont *barNavTitltFont;
+/**
+ 按钮默认黑色
  */
 @property (nonatomic, strong) UIColor *barTitltColor;
 /**
- 默认14
+ 按钮默认14
  */
 @property (nonatomic, assign) UIFont *barTitltFont;
 
 @property (nonatomic, strong) UIImage *barNavBackArrow;
-
 /**
  默认[UIColor colorWithWhite:0.93 alpha:1];
  */

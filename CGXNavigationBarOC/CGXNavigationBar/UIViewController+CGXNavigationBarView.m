@@ -11,6 +11,7 @@
 #import "sys/utsname.h"
 #import "UIViewController+CGXNavigationBarViewPush.h"
 #import "UINavigationController+CGXNavigationBarView.h"
+#import "UIBarButtonItem+CGXNavigationBar.h"
 @implementation UIViewController (CGXNavigationBarView)
 
 static char GXNavBarBackgroundImageKey;

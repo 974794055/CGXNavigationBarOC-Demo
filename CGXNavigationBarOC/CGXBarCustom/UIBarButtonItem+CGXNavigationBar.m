@@ -85,7 +85,7 @@
             [button setTitle:model.itemNormalTitle forState:UIControlStateSelected];
             [button setTitle:model.itemNormalTitle forState:UIControlStateHighlighted];
             
-            button.titleLabel.font = model.itemNormalFont ? model.itemNormalFont:nil;
+            button.titleLabel.font = model.itemNormalFont ? model.itemNormalFont:[UIFont systemFontOfSize:14];
             
             [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateNormal];
             [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateSelected];
@@ -104,7 +104,7 @@
             [button setTitle:model.itemNormalTitle forState:UIControlStateSelected];
             [button setTitle:model.itemNormalTitle forState:UIControlStateHighlighted];
             
-            button.titleLabel.font = model.itemNormalFont?model.itemNormalFont:nil;
+            button.titleLabel.font = model.itemNormalFont?model.itemNormalFont:[UIFont systemFontOfSize:14];
             
             [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateNormal];
             [button setTitleColor:model.itemNormalColor?model.itemNormalColor:[UIColor blackColor] forState:UIControlStateSelected];
@@ -144,7 +144,7 @@
             selectBlock(weakBtn,model);
         }
     }];
-    button.backgroundColor = [UIColor orangeColor];
+//    button.backgroundColor = [UIColor orangeColor];
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 @end

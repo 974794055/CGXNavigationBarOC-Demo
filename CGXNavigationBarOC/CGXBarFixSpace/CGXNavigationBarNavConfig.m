@@ -7,6 +7,7 @@
 //
 
 #import "CGXNavigationBarNavConfig.h"
+#import <objc/runtime.h>
 
 
 
@@ -22,26 +23,23 @@
 }
 
 -(instancetype)init {
-    self = [super init];
-    if (self) {
-        [self configBase];
+    if (self = [super init]) {
+        self.gxBar_disableFixSpace = NO;
+        self.gxBar_defaultFixSpace = 10;
+        self.gxBar_fixedSpaceWidth = self.sx_systemSpace;
     }
     return self;
 }
 
--(void)configBase {
-    self.gxBar_defaultFixSpace = 10;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue]>11) {
-        self.gxBar_fixedSpaceWidth = -20;
-    }else{
-        self.gxBar_fixedSpaceWidth = -10;
-    }
-     self.gxBar_fixedSpaceWidth = 0;
-    self.gxBar_disableFixSpace = NO;
+- (CGFloat)sx_systemSpace {
+    
+    //        if ([[[UIDevice currentDevice] systemVersion] floatValue]>11) {
+    //            self.gxBar_fixedSpaceWidth = 10;
+    //        }else{
+    //            self.gxBar_fixedSpaceWidth = 10;
+    //        }
+    
+    return MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) > 375 ? 20 : 16;
 }
 
 @end
-
-
-
-

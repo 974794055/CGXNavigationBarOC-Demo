@@ -7,12 +7,12 @@
 //
 
 #import "TwoViewController.h"
-#import "CGXCustomNavigationBarNavView.h"
-#import "CGXNavigationBarNavView.h"
+
+
 #import "CGXNavigationBarOC.h"
+
 @interface TwoViewController ()
 
-@property (nonatomic, strong) CGXCustomNavigationBarNavView *customNavBar;
 @end
 
 @implementation TwoViewController
@@ -23,98 +23,63 @@
     [self bgColor];
  __weak typeof(self) weakSelf = self;
   [self bgColor];
-
-    
-    self.navigationController.navigationBar.hidden = YES;
+//    self.navigationController.navigationBar.hidden = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupNavBar];
-}
+    
+    NSArray *arr = @[@"哈1"];
+    NSMutableArray *itemArr  =[NSMutableArray array];
+    for (int i = 0; i<arr.count; i++) {
+        CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
+        model.itemNormalTitle = arr[i];
+        [itemArr addObject:model];
+    }
+    [self addBarLeftMorelWithArr:itemArr Target:^(UIButton *btn, CGXNavigationBarItemModel *item) {
+        NSLog(@"%ld--%@", btn.tag,item.itemNormalTitle);
 
+    }];
+
+
+    NSArray *arr1 = @[@"哈1",@"哈2",@"哈3"];
+    NSMutableArray *itemArr1  =[NSMutableArray array];
+    for (int i = 0; i<arr1.count; i++) {
+        CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
+        model.itemNormalTitle = arr1[i];
+        [itemArr1 addObject:model];
+    }
+    [self addBarRightMorelWithArr:itemArr1 Target:^(UIButton *btn, CGXNavigationBarItemModel *item) {
+        NSLog(@"%ld--%@", btn.tag,item.itemNormalTitle);
+    }];
+
+
+    // 设置导航栏颜色
+    [self gx_setNavBarBarTintColor:[UIColor orangeColor]];
+    // 设置初始导航栏透明度
+    [self gx_setNavBarBackgroundAlpha:1];
+        // 设置导航栏按钮和标题颜色
+    [self gx_setNavBarTintColor:[UIColor whiteColor]];
+
+    [self gx_setNavBarTitleColor:[UIColor whiteColor]];
+    
+    
+    [self gx_setStatusBarStyle:UIStatusBarStyleDefault];
+    
+}
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+ 
+}
 - (void)setupNavBar
 {
-    [self.view addSubview:self.customNavBar];
 
-    // 设置自定义导航栏背景图片
-    self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"millcolorGrad"];
-
-    // 设置自定义导航栏标题颜色
-    self.customNavBar.titleLabelColor = [UIColor whiteColor];
-
-    [self.customNavBar leftWithImage:[UIImage imageNamed:@"Arrow"] Target:^(UIButton *btn, CGXNavigationBarItemModel *item) {
-        
-    }];
 }
 
-- (CGXCustomNavigationBarNavView *)customNavBar
-{
-    if (_customNavBar == nil) {
-        _customNavBar = [CGXCustomNavigationBarNavView customNavigationBar];
-    }
-    return _customNavBar;
-}
-
-//- (void)setupNavBar
-//{
-//     self.customNavBar = [CGXNavigationBarNavView CustomNavigationBar];
-//    [self.view addSubview:self.customNavBar];
-//    self.customNavBar.backColor = [UIColor orangeColor];
-//    // 设置自定义导航栏背景图片
-////    self.customNavBar.backImage = [UIImage imageNamed:@"millcolorGrad"];
-//
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [btn setImage:[UIImage imageNamed:@"Arrow"] forState:UIControlStateNormal];
-//    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-//    btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-//    btn.titleLabel.numberOfLines = 0;
-//    [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-//    btn.frame = CGRectMake(0, 44, 60, 44);
-//    btn.userInteractionEnabled = YES;
-//    [self.customNavBar addSubview:btn];
-//}
-//
-//- (void)back
-//{
-////    [self.navigationController popViewControllerAnimated:YES];
-//      [self gx_toLastViewController];
-//}
-//
-//- (void)gx_toLastViewController
-//{
-//    if (self.navigationController) {
-//        if (self.navigationController.viewControllers.count == 1) {
-//            if (self.presentingViewController) {
-//                [self dismissViewControllerAnimated:YES completion:nil];
-//            }
-//        } else {
-//            [self.navigationController popViewControllerAnimated:YES];
-//        }
-//    } else if(self.presentingViewController) {
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }
-//}
-//
-//- (UIViewController*)gx_currentViewController {
-//    UIViewController* rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-//    return [self gx_currentViewControllerFrom:rootViewController];
-//}
-//
-//- (UIViewController*)gx_currentViewControllerFrom:(UIViewController*)viewController
-//{
-//    if ([viewController isKindOfClass:[UINavigationController class]]) {
-//        UINavigationController* navigationController = (UINavigationController *)viewController;
-//        return [self gx_currentViewControllerFrom:navigationController.viewControllers.lastObject];
-//    }
-//    else if([viewController isKindOfClass:[UITabBarController class]]) {
-//        UITabBarController* tabBarController = (UITabBarController *)viewController;
-//        return [self gx_currentViewControllerFrom:tabBarController.selectedViewController];
-//    }
-//    else if (viewController.presentedViewController != nil) {
-//        return [self gx_currentViewControllerFrom:viewController.presentedViewController];
-//    }
-//    else {
-//        return viewController;
-//    }
-//}
 
 /*
 #pragma mark - Navigation

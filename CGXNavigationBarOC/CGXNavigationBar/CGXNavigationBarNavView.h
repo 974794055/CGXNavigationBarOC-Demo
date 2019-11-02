@@ -15,7 +15,7 @@
 @interface CGXNavigationBarNavView : UIView
 
 /// 局部使用该库       待开发
-//+ (void)gx_local;
++ (void)gx_local;
 /// 广泛使用该库       default 暂时是默认， gx_local 完成后，gx_local就会变成默认
 + (void)gx_widely;
 
@@ -33,18 +33,14 @@
 /** set default tintColor of UINavigationBar */
 + (void)gx_setDefaultNavBarTintColor:(UIColor *)color;
 
-
 /** set default titleColor of UINavigationBar */
 + (void)gx_setDefaultNavBarTitleColor:(UIColor *)color;
-
 
 /** set default statusBarStyle of UIStatusBar */
 + (void)gx_setDefaultStatusBarStyle:(UIStatusBarStyle)style;
 
-
 /** set default shadowImage isHidden of UINavigationBar */
 + (void)gx_setDefaultNavBarShadowImageHidden:(BOOL)hidden;
-
 
 
 /**

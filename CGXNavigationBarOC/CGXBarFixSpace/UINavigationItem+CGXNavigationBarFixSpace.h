@@ -1,5 +1,5 @@
 //
-//  UINavigationItem+CGXBarFixSpace.h
+//  UINavigationItem+CGXNavigationBarFixSpace.h
 //  CGXNavigationBarOC-Demo
 //
 //  Created by CGX on 2019/10/1.
@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGXNavigationBarNavConfig.h"
+NS_ASSUME_NONNULL_BEGIN
 
 @interface UINavigationItem (CGXNavigationBarFixSpace)
 
 @end
+
+NS_ASSUME_NONNULL_END

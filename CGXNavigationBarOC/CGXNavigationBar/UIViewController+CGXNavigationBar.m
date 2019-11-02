@@ -10,19 +10,38 @@
 #import <objc/runtime.h>
 #import "UIButton+CGXBarButtonBlock.h"
 
-
-
 @implementation UIViewController (CGXNavigationBar)
+
+- (UIColor *)barNavTitltColor
+{
+    UIColor *color = objc_getAssociatedObject(self, @selector(barNavTitltColor));
+    return color?color:[UIColor orangeColor];
+}
+- (void)setBarNavTitltColor:(UIColor *)barNavTitltColor
+{
+    objc_setAssociatedObject(self, @selector(barNavTitltColor), barNavTitltColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIFont *)barNavTitltFont
+{
+    UIFont *font = objc_getAssociatedObject(self, @selector(barNavTitltFont));
+    return font?font:[UIFont systemFontOfSize:17];
+}
+- (void)setBarNavTitltFont:(UIFont *)barNavTitltFont
+{
+    objc_setAssociatedObject(self, @selector(barNavTitltFont), barNavTitltFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 - (UIColor *)barTitltColor
 {
     UIColor *color = objc_getAssociatedObject(self, @selector(barTitltColor));
-    return color?color:[UIColor blackColor];
+    return color?color:[UIColor orangeColor];
 }
 - (void)setBarTitltColor:(UIColor *)barTitltColor
 {
     objc_setAssociatedObject(self, @selector(barTitltColor), barTitltColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 - (UIFont *)barTitltFont
 {
     UIFont *font = objc_getAssociatedObject(self, @selector(barTitltFont));
@@ -58,7 +77,6 @@
 {
     objc_setAssociatedObject(self, @selector(backColor), backColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 /*
  默认[UIColor colorWithWhite:0.93 alpha:1];
  */
@@ -79,11 +97,11 @@
  */
 - (void)setNavTitle:(NSString *)title
 {
-    [self setNavTitle:title withColor:[self barTitltColor] Font:[UIFont systemFontOfSize:18]];
+    [self setNavTitle:title withColor:[self barNavTitltColor] Font:[self barNavTitltFont]];
 }
 - (void)setNavTitle:(NSString *)title withColor:(UIColor *)color
 {
-    [self setNavTitle:title withColor:color Font:[UIFont systemFontOfSize:18]];
+    [self setNavTitle:title withColor:color Font:[self barNavTitltFont]];
 }
 - (void)setNavTitle:(NSString *)title withColor:(UIColor *)color Font:(UIFont *)font
 {
@@ -93,10 +111,10 @@
 {
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:title];
     [attributedStr addAttribute:NSForegroundColorAttributeName
-                          value:color
+                          value:color ? color :[self barNavTitltColor]
                           range:NSMakeRange(0, title.length)];
     [attributedStr addAttribute:NSFontAttributeName
-                          value:font
+                          value:font ? font :[self barNavTitltFont]
                           range:NSMakeRange(0, title.length)];
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
@@ -121,6 +139,8 @@
     btn.titleLabel.textAlignment = NSTextAlignmentCenter;
     btn.titleLabel.numberOfLines = 0;
     [btn sizeToFit];
+    btn.bounds = CGRectMake(0, 0, btn.frame.size.width+20, btn.frame.size.height);
+//      btn.backgroundColor = [UIColor orangeColor];
     [btn addTapBlock:^(UIButton * _Nonnull btn) {
         if (block) {
             block(btn);
@@ -139,25 +159,33 @@
 - (void)addNavBackWithImage:(UIImage *)image BackBlock:(void (^)(UIViewController *vc))block
 {
     __weak typeof(self) weakNavBackSelf = self;
-    UIBarButtonItem *item =  [UIBarButtonItem itemWithImage:image Target:^(UIButton * _Nonnull sender, CGXNavigationBarItemModel * _Nonnull item) {
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.bounds = CGRectMake(0, 0, 44, 44);
+    [button setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+    [button setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateHighlighted];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    button.backgroundColor = [UIColor orangeColor];
+    [button addTapBlock:^(UIButton * _Nonnull btn) {
         if (block) {
             block(weakNavBackSelf);
         } else{
-            if (self.navigationController) {
-                if (self.navigationController.viewControllers.count == 1) {
-                    if (self.presentingViewController) {
-                        [self dismissViewControllerAnimated:YES completion:nil];
+            if (weakNavBackSelf.navigationController) {
+                if (weakNavBackSelf.navigationController.viewControllers.count == 1) {
+                    if (weakNavBackSelf.presentingViewController) {
+                        [weakNavBackSelf dismissViewControllerAnimated:YES completion:nil];
                     }
                 } else {
-                    [self.navigationController popViewControllerAnimated:YES];
+                    [weakNavBackSelf.navigationController popViewControllerAnimated:YES];
                 }
-            } else if(self.presentingViewController) {
+            } else if(weakNavBackSelf.presentingViewController) {
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
-            
+        
         }
     }];
-    self.navigationItem.leftBarButtonItems = @[item];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 #pragma mark -- 左侧按钮

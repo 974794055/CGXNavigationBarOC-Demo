@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CGXNavigationBarNavView.h"
+
+@class CGXNavigationBarNavView;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (CGXNavigationBarView)
 
-- (UIImage *)gx_navBarBackgroundImage;
+/** record current ViewController navigationBar image */
 - (void)gx_setNavBarBackgroundImage:(UIImage *)image;
+- (UIImage *)gx_navBarBackgroundImage;
 
 /** record current ViewController navigationBar barTintColor */
 - (void)gx_setNavBarBarTintColor:(UIColor *)color;
@@ -38,10 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** record current ViewController navigationBar shadowImage hidden */
 - (void)gx_setNavBarShadowImageHidden:(BOOL)hidden;
 - (BOOL)gx_navBarShadowImageHidden;
-
-/** record current ViewController custom navigationBar */
-/** warning: gx_setDefaultNavBarBackgroundImage is deprecated! place use CGXNavigationBarNavView */
-//- (void)gx_setCustomNavBar:(CGXNavigationBarNavView *)navBar;
 
 @end
 

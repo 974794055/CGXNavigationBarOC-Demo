@@ -20,28 +20,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self bgColor];
+     [self addNavBack];
+    
     __weak typeof(self) weakSelf = self;
-    
-//    NSArray *arr = @[@"哈1",@"哈2",@"哈3"];
-        NSArray *arr = @[@"哈1"];
-    NSMutableArray *itemArr  =[NSMutableArray array];
-    for (int i = 0; i<arr.count; i++) {
-        CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
-        model.itemNormalTitle = arr[i];
-        [itemArr addObject:model];
-    }
-    [self addBarLeftMorelWithArr:itemArr Target:^(UIButton *btn, CGXNavigationBarItemModel *item) {
-        NSLog(@"%ld--%@", btn.tag,item.itemNormalTitle);
-        
-    }];
-    
-    [self addBarRightMorelWithArr:itemArr Target:^(UIButton *btn, CGXNavigationBarItemModel *item) {
-        NSLog(@"%ld--%@", btn.tag,item.itemNormalTitle);
-    }];
-    
-    [self addNavBack];
-    
 
+    NSArray *arr1 = @[@"哈1",@"哈2",@"哈3"];
+    NSMutableArray *itemArr1  =[NSMutableArray array];
+    for (int i = 0; i<arr1.count; i++) {
+        CGXNavigationBarItemModel *model = [[CGXNavigationBarItemModel alloc] init];
+        model.itemNormalTitle = arr1[i];
+        [itemArr1 addObject:model];
+    }
+    [self addBarRightMorelWithArr:itemArr1 Target:^(UIButton *btn, CGXNavigationBarItemModel *item) {
+        NSLog(@"%ld--%@", btn.tag,item.itemNormalTitle);
+    }];
+    
 }
 - (void)viewWillAppear:(BOOL)animated
 {
