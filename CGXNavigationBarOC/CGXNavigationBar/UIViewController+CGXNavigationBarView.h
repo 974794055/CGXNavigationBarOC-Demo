@@ -16,30 +16,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** record current ViewController navigationBar image */
 - (void)gx_setNavBarBackgroundImage:(UIImage *)image;
-- (UIImage *)gx_navBarBackgroundImage;
-
 /** record current ViewController navigationBar barTintColor */
 - (void)gx_setNavBarBarTintColor:(UIColor *)color;
-- (UIColor *)gx_navBarBarTintColor;
-
 /** record current ViewController navigationBar backgroundAlpha */
 - (void)gx_setNavBarBackgroundAlpha:(CGFloat)alpha;
-- (CGFloat)gx_navBarBackgroundAlpha;
-
 /** record current ViewController navigationBar tintColor */
 - (void)gx_setNavBarTintColor:(UIColor *)color;
-- (UIColor *)gx_navBarTintColor;
-
 /** record current ViewController titleColor */
 - (void)gx_setNavBarTitleColor:(UIColor *)color;
-- (UIColor *)gx_navBarTitleColor;
-
 /** record current ViewController statusBarStyle */
 - (void)gx_setStatusBarStyle:(UIStatusBarStyle)style;
-- (UIStatusBarStyle)gx_statusBarStyle;
-
 /** record current ViewController navigationBar shadowImage hidden */
 - (void)gx_setNavBarShadowImageHidden:(BOOL)hidden;
+
+/**
+    内部使用
+*/
+- (UIImage *)gx_navBarBackgroundImage;
+- (UIColor *)gx_navBarBarTintColor;
+- (CGFloat)gx_navBarBackgroundAlpha;
+- (UIColor *)gx_navBarTintColor;
+- (UIColor *)gx_navBarTitleColor;
+- (UIStatusBarStyle)gx_statusBarStyle;
 - (BOOL)gx_navBarShadowImageHidden;
 
 @end

@@ -11,6 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UINavigationController (CGXNavigationBarView)
 
+
+/**
+    内部使用 不用调用
+*/
+
 - (void)setNeedsNavigationBarUpdateForBarBackgroundImage:(UIImage *)backgroundImage;
 - (void)setNeedsNavigationBarUpdateForBarTintColor:(UIColor *)barTintColor;
 - (void)setNeedsNavigationBarUpdateForBarBackgroundAlpha:(CGFloat)barBackgroundAlpha;
