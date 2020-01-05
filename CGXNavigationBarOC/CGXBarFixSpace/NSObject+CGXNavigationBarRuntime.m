@@ -10,9 +10,9 @@
 #import "NSObject+CGXNavigationBarRuntime.h"
 #import <objc/runtime.h>
 
-char * const kProtectCrashProtectorName = "kProtectCrashProtector";
+char * const CGXNavigationBarRuntimeProtectCrashProtectorName = "CGXNavigationBarRuntimeProtectCrashProtectorName";
 
-void ProtectCrashProtected(id self, SEL sel) {
+void CGXNavigationBarRuntimeProtectCrashProtected(id self, SEL sel) {
 }
 
 @implementation NSObject (CGXNavigationBarRuntime)
@@ -49,14 +49,14 @@ void ProtectCrashProtected(id self, SEL sel) {
 }
 
 + (Class)addMethodToStubClass:(SEL)aSelector {
-    Class ProtectCrashProtector = objc_getClass(kProtectCrashProtectorName);
+    Class ProtectCrashProtector = objc_getClass(CGXNavigationBarRuntimeProtectCrashProtectorName);
     
     if (!ProtectCrashProtector) {
-        ProtectCrashProtector = objc_allocateClassPair([NSObject class], kProtectCrashProtectorName, sizeof([NSObject class]));
+        ProtectCrashProtector = objc_allocateClassPair([NSObject class], CGXNavigationBarRuntimeProtectCrashProtectorName, sizeof([NSObject class]));
         objc_registerClassPair(ProtectCrashProtector);
     }
     
-    class_addMethod(ProtectCrashProtector, aSelector, (IMP)ProtectCrashProtected, "v@:");
+    class_addMethod(ProtectCrashProtector, aSelector, (IMP)CGXNavigationBarRuntimeProtectCrashProtected, "v@:");
     return ProtectCrashProtector;
 }
 
