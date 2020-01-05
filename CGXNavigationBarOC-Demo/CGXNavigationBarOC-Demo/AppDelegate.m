@@ -24,8 +24,6 @@
 
 - (void)setNavBarAppearence
 {
-
-
     // 设置是 广泛使用CGXNavigationBarNavView，还是局部使用CGXNavigationBarNavView，目前默认是广泛使用
     [CGXNavigationBarNavView gx_widely];
     [CGXNavigationBarNavView gx_setBlacklist:@[@"TwoViewController",
